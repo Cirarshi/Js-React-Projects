@@ -83,16 +83,19 @@ function Menu() {
     <main className="menu">
       <h2>You can choose from</h2>
 
-      <p>
-        Real authentic italian pizza taste is here, which you can get no-where.
-      </p>
-
       {pizzasNum > 0 ? (
-        <ul className="pizzas">
-          {pizzas.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
+        <React.Fragment>
+          <p>
+            Real authentic italian pizza taste is here, which you can get
+            no-where.
+          </p>
+
+          <ul className="pizzas">
+            {pizzas.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </React.Fragment>
       ) : (
         <p>We're upgrading our menu, please wait.</p>
       )}
@@ -141,15 +144,21 @@ function Menu() {
 
 function Pizza({ pizzaObj }) {
   //console.log(pizzaObj);
-  if (pizzaObj.soldOut) return null;
+  //if (pizzaObj.soldOut) return null;
 
   return (
-    <li className="pizza">
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
         <h3>{pizzaObj.name}</h3>
         <p>{pizzaObj.ingredients}</p>
-        <span>{pizzaObj.price + 3}</span>
+        {/*
+        {pizzaObj.soldOut ? (
+          <span>SOLD OUT</span>
+        ) : (
+          <span>{pizzaObj.price}</span>
+        )} */}
+        <span>{pizzaObj.soldOut ? "Sold Out" : pizzaObj.price}</span>
       </div>
     </li>
   );
