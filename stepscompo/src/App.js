@@ -8,21 +8,21 @@ const messages = [
 
 export default function App() {
   const [step, setStep] = useState(1);
-  const [name, nameUpdate] = useState({ name: "John" });
+  //const [name, nameUpdate] = useState({ name: "John" });
   const [isOpen, setIsOpen] = useState(true);
 
   function handlePrev() {
     if (step > 1) {
       setStep((currStep) => currStep - 1);
     }
-    nameUpdate({ name: "Hayile" });
+    //nameUpdate({ name: "Hayile" });
   }
 
   function handleNext() {
     if (step < 3) {
       setStep((currStep) => currStep + 1);
     }
-    nameUpdate({ name: "Jonny" });
+    //nameUpdate({ name: "Jonny" });
   }
 
   return (
@@ -39,7 +39,8 @@ export default function App() {
           </div>
 
           <p className="message">
-            Step {step}: {messages[step - 1]} {name.name}
+            Step {step}: {messages[step - 1]}
+            {/*name.name*/}
           </p>
 
           <div className="buttons">
