@@ -11,10 +11,10 @@ const pizzaData = [
     soldOut: false,
   },
   {
-    name: "Pizza Margherita",
-    ingredients: "Tomato and mozarella",
+    name: "Toasted Bread",
+    ingredients: "Toasted bread with veggies and cheese for a great start",
     price: 99,
-    photoName: "pizzas/margherita.jpg",
+    photoName: "pizzas/ToastedBread.jpg",
     soldOut: false,
   },
   {
