@@ -56,19 +56,24 @@ To launch and explore these projects on your machine:
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
-A snapshot of what's under the hood:
+Here's what powers the projects in this repository:
 
-Category	Tools/Technologies
-Framework	React (Create React App)
-Styling	Tailwind CSS / plain CSS / CSS Modules (select one)
-Data Handling	React Hooks (useState, useEffect)
-APIs	Fetch or Axios for external data
+| 🧩 **Category**      | 🚀 **Tools & Technologies**                         |
+|----------------------|-----------------------------------------------------|
+| ⚛️ Framework         | [React](https://reactjs.org/) (Create React App)   |
+| 🎨 Styling           | Tailwind CSS / Plain CSS / CSS Modules *(varies by project)* |
+| 🔄 State Management  | React Hooks – `useState`, `useEffect`               |
+| 🌐 API Integration   | `fetch` API or [Axios](https://axios-http.com/)    |
+| 🧪 Testing *(optional)* | Jest / React Testing Library *(if added)*          |
+| 🛑 Routing *(if used)* | React Router DOM                                  |
+
+> 📝 *Note: Each project may vary slightly in tech stack depending on its functionality and purpose.*
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
  ```bash
 Js‑React‑Projects/
@@ -88,7 +93,7 @@ Each folder represents an independent React project—so you can effortlessly ho
 
 ---
 
-## What You'll Learn
+## 🧠 What You'll Learn
 
 - Components & Props — Break UI into reusable pieces
 - React Hooks — Manage state and side effects cleanly
@@ -102,7 +107,7 @@ These projects reinforce essential React skills—empowering you to build from s
 
 ---
 
-## Contribute
+## 🤝 Contribute
 
 Contributions are welcome! Here's how to help:
 
@@ -122,7 +127,7 @@ Contributions are welcome! Here's how to help:
 
 ---
 
-## License
+## 📄 License
 
 Feel free to explore, modify, and share—with attribution.
 
