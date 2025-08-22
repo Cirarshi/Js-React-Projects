@@ -122,7 +122,7 @@ Contributions are welcome! Here's how to help:
    ```bash
    git commit -m "feat: add new React project"
    git push origin feature/new-project
-   ```   
+   ```
 6. Submit a Pull Request and describe your addition.
 
 ---
