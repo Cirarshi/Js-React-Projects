@@ -66,7 +66,7 @@ Here's what powers the projects in this repository:
 | 🎨 Styling           | Tailwind CSS / Plain CSS / CSS Modules *(varies by project)* |
 | 🔄 State Management  | React Hooks – `useState`, `useEffect`               |
 | 🌐 API Integration   | `fetch` API or [Axios](https://axios-http.com/)    |
-| 🧪 Testing *(optional)* | Jest / React Testing Library *(if added)*          |
+| 🧪 Testing *(optional)* | Jest / React Testing Library          |
 | 🛑 Routing *(if used)* | React Router DOM                                  |
 
 > 📝 *Note: Each project may vary slightly in tech stack depending on its functionality and purpose.*
