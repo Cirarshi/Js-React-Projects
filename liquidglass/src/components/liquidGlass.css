@@ -1,0 +1,174 @@
+:root {
+  --glass-radius: 16px;
+  --glass-blur: 14px;
+  --glass-accent: rgba(255, 255, 255, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.22);
+}
+
+/* page layout basics */
+.app {
+  min-height: 100vh;
+  color: #fff;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  /* set the page background here (image or gradient) */
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 1.5rem;
+}
+
+/* hero and footer */
+.hero {
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+.foot {
+  opacity: 0.8;
+}
+
+/* wrapper to position the glass */
+.liquid-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* the glass card */
+.glass-card {
+  position: relative;
+  width: min(720px, 90vw);
+  height: 320px;
+  border-radius: var(--glass-radius);
+  overflow: hidden;
+  /* frosted backing for browsers that support backdrop-filter */
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(120%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(120%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* duplicated background (this gets distorted by the SVG filter) */
+.glass-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* align duplicated bg so it matches page background position */
+  background-position: var(--bg-pos-x, 0px) var(--bg-pos-y, 0px);
+  /* apply SVG displacement + blur (order matters): SVG filter first, then small blur */
+  filter: url(#liquidFilter) blur(6px) saturate(120%);
+  -webkit-filter: url(#liquidFilter) blur(6px) saturate(120%);
+  transform: translateZ(0);
+  will-change: filter, transform;
+}
+
+/* the translucent sheet above the distorted background */
+.glass-card__frost {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px) saturate(110%);
+  -webkit-backdrop-filter: blur(6px) saturate(110%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-radius: inherit;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* content on top */
+.glass-card__content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.glass-card__content h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+}
+.glass-card__content p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+button {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  backdrop-filter: none;
+}
+button.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* accessibility: prefer-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .glass-card__bg {
+    filter: blur(4px) saturate(110%);
+    -webkit-filter: blur(4px) saturate(110%);
+  }
+}
+
+button {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+button.ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
